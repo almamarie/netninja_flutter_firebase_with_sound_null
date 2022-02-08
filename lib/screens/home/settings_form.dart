@@ -13,7 +13,7 @@ final List<String> sugars = ['0', '1', '2', '3', '4'];
 
 String _currentName = '';
 String _currentSugars = '0';
-int _currentStrength = 0;
+int _currentStrength = 100;
 
 class _SettingsFormState extends State<SettingsForm> {
   @override
@@ -42,7 +42,8 @@ class _SettingsFormState extends State<SettingsForm> {
           // dropdowm
 
           DropdownButtonFormField(
-             isExpanded: true,
+            decoration: textInputDecoration,
+            isExpanded: true,
             value: _currentSugars == ' ' ? sugars[0] : sugars[0],
             items: sugars.map(
               (sugar) {
@@ -63,8 +64,21 @@ class _SettingsFormState extends State<SettingsForm> {
 
           //slider
 
+          Slider(
+            activeColor: Colors.brown[_currentStrength],
+            inactiveColor: Colors.brown,
+            min: 100,
+            max: 900,
+            divisions: 8,
+            value: (_currentStrength ).toDouble(), 
+            onChanged: (val){
+              setState(() {
+                _currentStrength = val.round();
+              },);
+            },),
+
           TextButton(
-            style: TextButton.styleFrom(
+            style: TextButton.styleFrom( 
               backgroundColor: Colors.pink,
             ),
             onPressed: () async {
