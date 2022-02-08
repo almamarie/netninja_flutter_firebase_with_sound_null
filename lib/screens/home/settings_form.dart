@@ -12,7 +12,7 @@ final _formKey = GlobalKey<FormState>();
 final List<String> sugars = ['0', '1', '2', '3', '4'];
 
 String _currentName = '';
-String _currentSugars = '';
+String _currentSugars = '0';
 int _currentStrength = 0;
 
 class _SettingsFormState extends State<SettingsForm> {
@@ -41,22 +41,25 @@ class _SettingsFormState extends State<SettingsForm> {
           ),
           // dropdowm
 
-          DropdownButton(
-              isExpanded: true,
-              value: Text('$_currentSugars sugars'),
-              items: sugars.map(
-                (sugar) {
-                  return DropdownMenuItem(
-                    value: sugar,
-                    child: Text('$sugar sugars'),
-                  );
-                },
-              ).toList(),
-              onChanged: (val) {
-                setState(() {
+          DropdownButtonFormField(
+             isExpanded: true,
+            value: _currentSugars == ' ' ? sugars[0] : sugars[0],
+            items: sugars.map(
+              (sugar) {
+                return DropdownMenuItem(
+                  value: sugar,
+                  child: Text('$sugar sugars'),
+                );
+              },
+            ).toList(),
+            onChanged: (val) {
+              setState(
+                () {
                   _currentSugars = val.toString();
-                });
-              }),
+                },
+              );
+            },
+          ),
 
           //slider
 
