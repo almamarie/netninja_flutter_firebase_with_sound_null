@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:netninja_flutter_firebase/screens/home/settings_form.dart';
 import 'package:netninja_flutter_firebase/services/auth.dart';

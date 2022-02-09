@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return StreamProvider<UserData?>.value(
       initialData: null,
       value: AuthService().user,
-      child: MaterialApp(
+      child: const MaterialApp(
         home: Wrapper(),
       ),
     );

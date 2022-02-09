@@ -12,7 +12,6 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  @override
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
@@ -21,9 +20,10 @@ class _RegisterState extends State<Register> {
   String password = '';
   String error = '';
 
+  @override
   Widget build(BuildContext context) {
     return loading
-        ? Loading()
+        ? const Loading()
         : Scaffold(
             backgroundColor: Colors.brown[100],
             appBar: AppBar(

@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:netninja_flutter_firebase/models/user.dart';
 import 'package:netninja_flutter_firebase/services/auth.dart';
 import 'package:netninja_flutter_firebase/shared/constants.dart';
 import 'package:netninja_flutter_firebase/shared/loading.dart';
@@ -26,7 +24,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading
-        ? Loading()
+        ? const Loading()
         : Scaffold(
             backgroundColor: Colors.brown[100],
             appBar: AppBar(
